@@ -17,7 +17,6 @@ function Row({ isLargeRow, title, id, fetchUrl }) {
 
   const fetchMovieData = async () => {
     const request = await axios.get(fetchUrl);
-    // console.log(request);
     setMovies(request.data.results);
   };
 
@@ -46,11 +45,11 @@ function Row({ isLargeRow, title, id, fetchUrl }) {
             className="row__posters"
             spaceBetween={50}
             slidesPerView={6}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
+            // onSlideChange={() => console.log('slide change')}
+            // onSwiper={(swiper) => console.log(swiper)}
         >
           {movies.map((movie) => (
-            <SwiperSlide>
+            <SwiperSlide key={movie.id}>
                 <img
                     key={movie.id}
                     className={`row__poster ${isLargeRow && "row__posterLarge"}`}
